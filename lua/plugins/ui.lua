@@ -51,6 +51,30 @@ return {
     end,
   },
   {
+    "lewis6991/gitsigns.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("gitsigns").setup({
+        signs = {
+          add = { text = "+" },
+          change = { text = "~" },
+          delete = { text = "_" },
+          topdelete = { text = "‾" },
+          changedelete = { text = "~" },
+        },
+      })
+    end,
+  },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+  },
+  {
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
     opts = function(_, opts)
