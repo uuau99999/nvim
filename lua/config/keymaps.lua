@@ -11,8 +11,9 @@ keymap.set("n", "x", '"_x')
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
--- Delete a word backwards
 keymap.set("n", "dw", "daw")
+keymap.set("n", "yw", "yaw")
+keymap.set("n", "cw", "caw")
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
@@ -20,3 +21,7 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 -- Split window
 keymap.set("n", "ss", ":split<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>", opts)
+
+-- Line move
+keymap.set("n", "<M-UP>", ":m-2<CR>")
+keymap.set("n", "<M-DOWN>", ":m+1<CR>")
