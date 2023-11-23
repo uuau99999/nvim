@@ -7,14 +7,10 @@ require("lspconfig").volar.setup({
   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
 })
 
-local function currentPath()
-  return vim.fn.expand("%")
-end
-
 require("lualine").setup({
   sections = {
     lualine_c = {
-      { currentPath, max_length = 1500 },
+      { "filename", file_status = true, path = 3 },
     },
   },
 })
