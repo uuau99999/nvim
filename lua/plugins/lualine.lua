@@ -18,12 +18,23 @@ local function lastModifyTime(path)
 end
 
 local function lastModified()
+  if vim.bo.modified == true then
+    return ""
+  end
   local mtime = lastModifyTime(vim.fn.expand("%"))
   return mtime == 0 and "" or " (Updated: " .. os.date("%Y-%m-%d %H:%M:%S", mtime) .. ")"
 end
 
+local function isModified()
+  return vim.bo.modified and "*" or ""
+end
+
 local function customFilename()
-  return vim.fn.expand("%:p:~") .. lastModified()
+  return vim.fn.expand("%:p:~") .. isModified() .. lastModified()
+end
+
+local function customFilenameColor()
+  return { fg = vim.bo.modified and "#aa3355" or "#33aa88" }
 end
 
 return {
@@ -33,7 +44,7 @@ return {
       sections = {
         lualine_c = {
           { findGitDir, color = { fg = "#ff9e64" } },
-          { customFilename },
+          { customFilename, color = customFilenameColor },
         },
         lualine_x = { "encoding", "fileformat", "filetype" },
       },
