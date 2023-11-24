@@ -9,4 +9,8 @@ return {
     "folke/flash.nvim",
     enabled = false,
   },
+  {
+    "Exafunction/codeium.vim",
+    event = "BufEnter",
+  },
 }
