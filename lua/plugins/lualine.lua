@@ -6,7 +6,7 @@ local function findGitDir()
     end
     dir = vim.fn.fnamemodify(dir, ":h")
   end
-  return nil
+  return ""
 end
 
 local function lastModifyTime(path)
@@ -37,10 +37,13 @@ local function customFilenameColor()
   return { fg = vim.bo.modified and "#aa3355" or "#33aa88" }
 end
 
+local custom_gruvbox = require("lualine.themes.tokyonight")
+
 return {
   "nvim-lualine/lualine.nvim",
   config = function()
     require("lualine").setup({
+      options = { theme = custom_gruvbox },
       sections = {
         lualine_c = {
           { findGitDir, color = { fg = "#ff9e64" }, icon = "" },
