@@ -4,6 +4,12 @@
 
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
+local nmap = function(keys, func, desc)
+  if desc then
+    desc = "LazyVim " .. desc
+  end
+  vim.keymap.set("n", keys, func, { desc = desc })
+end
 
 keymap.set("n", "x", '"_x')
 
@@ -37,3 +43,14 @@ local closeF = function()
   end
 end
 keymap.set("n", "<leader>tw", closeF, { desc = "Close current tab" })
+
+keymap.set("n", "<leader>?", function()
+  -- You can pass additional configuration to telescope to change theme, layout, etc.
+  require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+    winblend = 10,
+    previewer = false,
+  }))
+end, { desc = "[/] Fuzzily search in current buffer" })
+
+nmap("<leader>fg", "<cmd>Telescope live_grep<cr>", "Live grep")
+nmap("<leader>fh", "<cmd>Telescope help_tags<cr>", "Help tags")
