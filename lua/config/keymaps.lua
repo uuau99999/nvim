@@ -54,3 +54,4 @@ end, { desc = "[/] Fuzzily search in current buffer" })
 
 nmap("<leader>fg", "<cmd>Telescope live_grep<cr>", "Live grep")
 nmap("<leader>fh", "<cmd>Telescope help_tags<cr>", "Help tags")
+nmap("<leader>sr", "<cmd>Telescope lsp_references<cr>", "Search references")
