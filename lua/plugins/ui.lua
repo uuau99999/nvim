@@ -56,12 +56,13 @@ return {
     config = function()
       require("gitsigns").setup({
         signs = {
-          add = { text = "+" },
-          change = { text = "~" },
-          delete = { text = "_" },
-          topdelete = { text = "‾" },
-          changedelete = { text = "~" },
+          add = { text = "+", linehl = "GitSignsAddLn" },
+          change = { text = "~", linehl = "GitSignsChangeLn" },
+          delete = { text = "_", linehl = "GitSignsDeleteLn" },
+          topdelete = { text = "‾", linehl = "GitSignsDeleteLn" },
+          changedelete = { text = "~", linehl = "GitSignsChangeLn" },
         },
+        linehl = true,
       })
     end,
   },
