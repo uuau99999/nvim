@@ -262,5 +262,8 @@ return {
         end, { "i", "s" }),
       })
     end,
+    config = function(_, opts)
+      require("cmp").setup(opts)
+    end,
   },
 }
