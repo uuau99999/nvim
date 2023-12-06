@@ -22,3 +22,5 @@ ls.add_snippets("typescript", {
 ls.add_snippets("javascript", {
   clg_snippet,
 })
+
+require("telescope").load_extension("harpoon")
