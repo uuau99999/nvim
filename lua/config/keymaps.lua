@@ -35,18 +35,18 @@ keymap.set("n", "sv", ":vsplit<Return>", opts)
 keymap.set("n", "<M-UP>", ":m-2<CR>")
 keymap.set("n", "<M-DOWN>", ":m+1<CR>")
 
--- Tab close
-local bufferlineCommands = require("bufferline.commands")
-local bufferlineConfig = require("bufferline.config")
-local state = require("bufferline.state")
-local closeF = function()
-  local index = bufferlineCommands.get_current_element_index(state)
-  for _, item in ipairs(vim.list_slice(state.components, index, index)) do
-    bufferlineConfig.options.close_command(item.id)
-  end
-end
-keymap.set("n", "<leader>tw", closeF, { desc = "Close current tab" })
-
+-- -- Tab close
+-- local bufferlineCommands = require("bufferline.commands")
+-- local bufferlineConfig = require("bufferline.config")
+-- local state = require("bufferline.state")
+-- local closeF = function()
+--   local index = bufferlineCommands.get_current_element_index(state)
+--   for _, item in ipairs(vim.list_slice(state.components, index, index)) do
+--     bufferlineConfig.options.close_command(item.id)
+--   end
+-- end
+-- keymap.set("n", "<leader>tw", closeF, { desc = "Close current tab" })
+--
 keymap.set("n", "<leader>?", function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({

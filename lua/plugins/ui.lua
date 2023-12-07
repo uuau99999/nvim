@@ -20,6 +20,7 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
+    enabled = false,
     event = "VeryLazy",
     keys = {
       { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
@@ -76,6 +77,7 @@ return {
     config = function()
       require("neo-tree").setup({
         filesystem = {
+          hijack_netrw_behavior = "disabled",
           filtered_items = {
             visible = true,
             hide_dotfiles = false,
