@@ -13,6 +13,8 @@ end
 
 keymap.set("n", "<leader>pv", vim.cmd.Ex, opts)
 
+keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
