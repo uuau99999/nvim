@@ -11,6 +11,11 @@ local nmap = function(keys, func, desc)
   vim.keymap.set("n", keys, func, { desc = desc })
 end
 
+keymap.set("n", "<leader>pv", vim.cmd.Ex, opts)
+
+keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 keymap.set("n", "x", '"_x')
 
 keymap.set("n", "<C-d>", "<C-d>zz")
@@ -54,7 +59,11 @@ keymap.set("n", "<leader>?", function()
     previewer = false,
   }))
 end, { desc = "[/] Fuzzily search in current buffer" })
+nmap("<leader>ff", "<cmd>Telescope find_files<cr>", "Find files")
+nmap("<leader>fg", "<cmd>Telescope git_files<cr>", "Find Git files")
+nmap("<leader>fw", function()
+  require("telescope.builtin").grep_string({ search = vim.fn.expand("<cword>") })
+end, "Find Words")
 
-nmap("<leader>fg", "<cmd>Telescope live_grep<cr>", "Live grep")
-nmap("<leader>fh", "<cmd>Telescope help_tags<cr>", "Help tags")
+nmap("<leader>fh", "<cmd>Telescope help_tags<cr>", "Find Help tags")
 nmap("<leader>sr", "<cmd>Telescope lsp_references<cr>", "Search references")
