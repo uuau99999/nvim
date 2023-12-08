@@ -17,4 +17,20 @@ return {
       })
     end,
   },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      inlay_hints = { enabled = true },
+      ---@type lspconfig.options
+      servers = {
+        tsserver = {
+          root_dir = function(...)
+            return require("lspconfig.util").root_pattern(".git")(...)
+          end,
+          single_file_support = false,
+        },
+      },
+      setup = {},
+    },
+  },
 }
