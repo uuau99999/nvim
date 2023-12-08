@@ -23,13 +23,10 @@ keymap.set("n", "x", '"_x')
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
 
--- Increment/decrement
-keymap.set("n", "+", "<C-a>")
-keymap.set("n", "-", "<C-x>")
-
 keymap.set("n", "dw", "daw")
 keymap.set("n", "yw", "yaw")
-keymap.set("n", "cw", "caw")
+keymap.set("n", "c", '"_c')
+keymap.set("n", "cw", '"_caw')
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
