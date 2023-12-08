@@ -1,4 +1,4 @@
-local function findGitDir()
+local function findCodebaseDir()
   local dir = vim.fn.getcwd()
   while dir ~= "/" do
     if vim.fn.isdirectory(dir .. "/.git") == 1 then
@@ -46,7 +46,7 @@ return {
       options = { theme = custom_gruvbox },
       sections = {
         lualine_c = {
-          { findGitDir, color = { fg = "#ff9e64" }, icon = "" },
+          { findCodebaseDir, color = { fg = "#ff9e64" }, icon = "" },
           { customFilename, color = customFilenameColor },
         },
         lualine_x = { "encoding", "fileformat", "filetype" },
