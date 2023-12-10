@@ -18,19 +18,44 @@ return {
     end,
   },
   {
+    "folke/neoconf.nvim",
+  },
+  {
     "neovim/nvim-lspconfig",
     opts = {
       inlay_hints = { enabled = true },
-      ---@type lspconfig.options
-      servers = {
-        tsserver = {
-          root_dir = function(...)
-            return require("lspconfig.util").root_pattern(".git")(...)
-          end,
-          single_file_support = false,
-        },
-      },
-      setup = {},
     },
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = function()
+      local masonLsp = require("mason-lspconfig")
+      local lspconfig = require("lspconfig")
+      masonLsp.setup({
+        automatic_installation = true,
+        ensure_installed = {
+          "volar",
+          "tsserver",
+          "eslint",
+          "cssls",
+          "tailwindcss",
+          "lua_ls",
+          "html",
+          "jsonls",
+        },
+      })
+      masonLsp.setup_handlers({
+        function(server_name)
+          local server_config = {}
+          if require("neoconf").get(server_name .. ".disable") then
+            return
+          end
+          if server_name == "volar" then
+            server_config.filetypes = { "vue", "typescript", "javascript" }
+          end
+          lspconfig[server_name].setup(server_config)
+        end,
+      })
+    end,
   },
 }
