@@ -30,7 +30,6 @@ return {
     "williamboman/mason-lspconfig.nvim",
     opts = function()
       local masonLsp = require("mason-lspconfig")
-      local lspconfig = require("lspconfig")
       masonLsp.setup({
         automatic_installation = true,
         ensure_installed = {
@@ -43,18 +42,6 @@ return {
           "html",
           "jsonls",
         },
-      })
-      masonLsp.setup_handlers({
-        function(server_name)
-          local server_config = {}
-          if require("neoconf").get(server_name .. ".disable") then
-            return
-          end
-          if server_name == "volar" then
-            server_config.filetypes = { "vue", "typescript", "javascript" }
-          end
-          lspconfig[server_name].setup(server_config)
-        end,
       })
     end,
   },

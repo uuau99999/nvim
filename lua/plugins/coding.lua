@@ -11,7 +11,7 @@ return {
     opts = function(_, opts)
       opts.sources = vim.list_extend(
         opts.sources,
-        { { name = "emoji" }, { name = "nvim_lsp" }, { name = "path" }, { name = "buffer" } }
+        { { name = "emoji" }, { name = "nvim_lsp" }, { name = "path" }, { name = "buffer" }, { name = "luasnip" } }
       )
       opts.window = {
         completion = {
@@ -32,6 +32,13 @@ return {
           end,
         }),
       }
+      -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+      -- An example for configuring `clangd` LSP to use nvim-cmp as a completion engine
+      require("lspconfig").volar.setup({
+        capabilities = capabilities,
+      })
     end,
   },
   {
