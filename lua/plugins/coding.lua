@@ -38,6 +38,7 @@ return {
       -- An example for configuring `clangd` LSP to use nvim-cmp as a completion engine
       require("lspconfig").volar.setup({
         capabilities = capabilities,
+        filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
       })
     end,
   },
