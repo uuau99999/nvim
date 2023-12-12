@@ -23,7 +23,75 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      diagnostics = {
+        underline = true,
+        virtual_text = true,
+        signs = true,
+        update_in_insert = false,
+      },
       inlay_hints = { enabled = true },
+      servers = {
+        tsserver = {
+          keys = {
+            {
+              "<leader>co",
+              function()
+                vim.lsp.buf.code_action({
+                  apply = true,
+                  context = {
+                    only = { "source.organizeImports.ts" },
+                    diagnostics = {},
+                  },
+                })
+              end,
+              desc = "Organize Imports",
+            },
+            {
+              "<leader>cR",
+              function()
+                vim.lsp.buf.code_action({
+                  apply = true,
+                  context = {
+                    only = { "source.removeUnused.ts" },
+                    diagnostics = {},
+                  },
+                })
+              end,
+              desc = "Remove Unused Imports",
+            },
+          },
+        },
+        volar = {
+          keys = {
+            {
+              "<leader>co",
+              function()
+                vim.lsp.buf.code_action({
+                  apply = true,
+                  context = {
+                    only = { "source.organizeImports.ts" },
+                    diagnostics = {},
+                  },
+                })
+              end,
+              desc = "Organize Imports",
+            },
+            {
+              "<leader>cR",
+              function()
+                vim.lsp.buf.code_action({
+                  apply = true,
+                  context = {
+                    only = { "source.removeUnused.ts" },
+                    diagnostics = {},
+                  },
+                })
+              end,
+              desc = "Remove Unused Imports",
+            },
+          },
+        },
+      },
     },
   },
   {
