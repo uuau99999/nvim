@@ -10,12 +10,20 @@ return {
         },
         opts = { skip = true },
       })
+      opts.cmdline = {
+        enabled = true,
+        view = "cmdline_popup",
+      }
     end,
   },
   {
     "rcarriga/nvim-notify",
     opts = {
-      timeout = 10000,
+      timeout = 5000,
+      background_colour = "#000000",
+      render = "compact",
+      stages = "slide",
+      fps = 60,
     },
   },
   {
