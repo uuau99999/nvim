@@ -11,6 +11,8 @@ local nmap = function(keys, func, desc)
   vim.keymap.set("n", keys, func, { desc = desc })
 end
 
+keymap.set("c", "W", "w")
+
 keymap.set("n", "<leader>pv", vim.cmd.Ex, opts)
 
 keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
