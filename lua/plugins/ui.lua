@@ -31,11 +31,6 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-    opts = {
-      options = {
-        theme = "solarized_dark",
-      },
-    },
   },
   {
     "smjonas/inc-rename.nvim",
@@ -44,6 +39,7 @@ return {
   },
   {
     "echasnovski/mini.animate",
+    enabled = false,
     event = "VeryLazy",
     opts = function(_, opts)
       opts.scroll = {
@@ -63,7 +59,7 @@ return {
           topdelete = { text = "‾", linehl = "GitSignsDeleteLn" },
           changedelete = { text = "~", linehl = "GitSignsChangeLn" },
         },
-        linehl = true,
+        -- linehl = true,
       })
     end,
   },
