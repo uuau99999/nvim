@@ -8,6 +8,20 @@ return {
       },
       "nvim-telescope/telescope-file-browser.nvim",
     },
+    opts = {
+      extensions = {
+        fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = "smart_case",
+        },
+        file_browser = {
+          hijack_netrw = true,
+          theme = "dropdown",
+        },
+      },
+    },
   },
   {
     "folke/flash.nvim",
