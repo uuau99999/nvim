@@ -27,10 +27,11 @@ keymap.set("n", "S", '"_S')
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
 
-keymap.set("n", "dw", "daw")
-keymap.set("n", "yw", "yaw")
+keymap.set("n", "dw", "diw")
+keymap.set("n", "yw", "yiw")
+keymap.set("n", "vw", "viw")
 keymap.set("n", "c", '"_c')
-keymap.set("n", "cw", '"_caw')
+keymap.set("n", "cw", '"_ciw')
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
