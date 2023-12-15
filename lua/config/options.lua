@@ -4,7 +4,7 @@
 --
 
 vim.opt.spelllang = "en_us"
-vim.opt.spell = true
+vim.opt.spell = false
 -- vim.opt.guicursor = ""
-vim.opt.updatetime = 50
+vim.opt.updatetime = 750
 vim.opt.relativenumber = true
