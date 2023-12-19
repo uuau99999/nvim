@@ -74,3 +74,5 @@ end, "Find Words")
 nmap("<leader>fh", "<cmd>Telescope help_tags<cr>", "Find Help tags")
 nmap("<leader>sr", "<cmd>Telescope lsp_references<cr>", "Search references")
 nmap("<leader>fb", "<cmd>Telescope file_browser<cr>")
+
+nmap("<leader>o", "<cmd>Lspsaga outline<cr>", "Open Outline")
