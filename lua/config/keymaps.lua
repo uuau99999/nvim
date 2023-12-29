@@ -44,6 +44,8 @@ keymap.set("n", "sv", ":vsplit<Return>", opts)
 keymap.set("n", "<M-UP>", ":m-2<CR>")
 keymap.set("n", "<M-DOWN>", ":m+1<CR>")
 
+keymap.set("n", "<leader>e", "<cmd>Lex<cr>", opts)
+
 -- -- Tab close
 -- local bufferlineCommands = require("bufferline.commands")
 -- local bufferlineConfig = require("bufferline.config")
@@ -63,7 +65,8 @@ keymap.set("n", "<leader>?", function()
     previewer = false,
   }))
 end, { desc = "[/] Fuzzily search in current buffer" })
-nmap("<leader>ff", "<cmd>Telescope find_files<cr>", "Find files")
+nmap("<leader>ff", require("telescope.builtin").find_files, "Find files")
+nmap("<leader>/", require("telescope.builtin").live_grep, "Find Text")
 nmap("<leader>fg", "<cmd>Telescope git_files<cr>", "Find Git files")
 nmap("<leader>fw", function()
   require("telescope.builtin").grep_string({ search = vim.fn.expand("<cword>") })

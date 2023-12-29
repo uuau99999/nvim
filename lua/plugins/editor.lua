@@ -17,7 +17,7 @@ return {
           case_mode = "smart_case",
         },
         file_browser = {
-          hijack_netrw = true,
+          hijack_netrw = false,
           theme = "dropdown",
         },
       },
