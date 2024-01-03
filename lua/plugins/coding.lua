@@ -11,7 +11,7 @@ return {
     opts = function(_, opts)
       opts.sources = vim.list_extend(
         opts.sources,
-        { { name = "emoji" }, { name = "nvim_lsp" }, { name = "path" }, { name = "buffer" }, { name = "luasnip" } }
+        { { name = "nvim_lsp" }, { name = "path" }, { name = "buffer" }, { name = "luasnip" } }
       )
       opts.window = {
         completion = {
@@ -70,6 +70,7 @@ return {
   },
   {
     "nvimdev/lspsaga.nvim",
+    enabled = false,
     dependencies = { "nvim-tree/nvim-web-devicons", "nvim-treesitter/nvim-treesitter" },
     config = function()
       require("lspsaga").setup({})
