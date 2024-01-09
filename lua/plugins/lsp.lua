@@ -111,6 +111,21 @@ return {
           "jsonls",
         },
       })
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local servers = {
+        volar = {
+          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+        },
+      }
+      masonLsp.setup_handlers({
+        function(server_name)
+          require("lspconfig")[server_name].setup({
+            capabilities = capabilities,
+            settings = servers[server_name],
+            filetypes = (servers[server_name] or {}).filetypes,
+          })
+        end,
+      })
     end,
   },
 }

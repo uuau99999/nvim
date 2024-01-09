@@ -6,13 +6,48 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-cmdline",
       "onsails/lspkind-nvim",
     },
     opts = function(_, opts)
-      opts.sources = vim.list_extend(
-        opts.sources,
-        { { name = "nvim_lsp" }, { name = "path" }, { name = "buffer" }, { name = "luasnip" } }
-      )
+      local cmp = require("cmp")
+      local no_format = {
+        fields = { "abbr" },
+      }
+      cmp.setup.cmdline({ "/", "?" }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        formatting = no_format,
+        sources = {
+          { name = "buffer" },
+        },
+      })
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        formatting = no_format,
+        sources = cmp.config.sources({
+          { name = "path" },
+        }, {
+          { name = "cmdline" },
+        }),
+      })
+
+      opts.sources = vim.list_extend(opts.sources, {
+        { name = "nvim_lsp", priority = 1000 },
+        { name = "path", priority = 999 },
+        { name = "buffer", priority = 998 },
+        -- { name = "luasnip", priority = 997 },
+      })
+      opts.sorting = {
+        comparators = {
+          cmp.config.compare.offset,
+          cmp.config.compare.exact,
+          cmp.config.compare.score,
+          cmp.config.compare.kind,
+          cmp.config.compare.sort_text,
+          cmp.config.compare.length,
+          cmp.config.compare.order,
+        },
+      }
       opts.window = {
         completion = {
           border = "rounded",
@@ -25,6 +60,7 @@ return {
       }
       opts.formatting = {
         format = require("lspkind").cmp_format({
+          preset = "codicons",
           mode = "symbol_text",
           before = function(entry, vim_item)
             vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
@@ -32,18 +68,11 @@ return {
           end,
         }),
       }
-      -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-      -- An example for configuring `clangd` LSP to use nvim-cmp as a completion engine
-      require("lspconfig").volar.setup({
-        capabilities = capabilities,
-        filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
-      })
     end,
   },
   {
     "L3MON4D3/LuaSnip",
+    enabled = false,
     -- follow latest release.
     version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
     -- install jsregexp (optional!).

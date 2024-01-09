@@ -65,6 +65,7 @@ keymap.set("n", "<leader>?", function()
     previewer = false,
   }))
 end, { desc = "[/] Fuzzily search in current buffer" })
+nmap("<leader><leader>", "<Cmd>Telescope frecency workspace=CWD<CR>")
 nmap("<leader>ff", require("telescope.builtin").find_files, "Find files")
 nmap("<leader>/", require("telescope.builtin").live_grep, "Find Text")
 nmap("<leader>fg", "<cmd>Telescope git_files<cr>", "Find Git files")
