@@ -6,7 +6,12 @@ return {
     "nvim-lua/plenary.nvim",
   },
   config = function()
-    require("harpoon"):setup({})
+    local harpoon = require("harpoon")
+    harpoon:setup({
+      settings = {
+        save_on_toggle = true,
+      },
+    })
   end,
   keys = {
     {
