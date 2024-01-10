@@ -6,6 +6,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-buffer",
+      "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-cmdline",
       "onsails/lspkind-nvim",
     },
@@ -35,7 +36,7 @@ return {
         { name = "nvim_lsp", priority = 1000 },
         { name = "path", priority = 999 },
         { name = "buffer", priority = 998 },
-        -- { name = "luasnip", priority = 997 },
+        { name = "luasnip", priority = 997 },
       })
       opts.sorting = {
         comparators = {
@@ -51,11 +52,12 @@ return {
       opts.window = {
         completion = {
           border = "rounded",
-          winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+          -- winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
         },
         documentation = {
           border = "rounded",
-          winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+          -- winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
         },
       }
       opts.formatting = {
@@ -72,7 +74,7 @@ return {
   },
   {
     "L3MON4D3/LuaSnip",
-    enabled = false,
+    enabled = true,
     -- follow latest release.
     version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
     -- install jsregexp (optional!).
@@ -83,6 +85,8 @@ return {
 
       local ls = require("luasnip")
       ls.filetype_extend("vue", { "vue" })
+      ls.filetype_extend("javascript", { "jsdoc" })
+      ls.filetype_extend("typescript", { "tsdoc" })
 
       local clg_snippet = ls.parser.parse_snippet("clg", "console.log($1)$0")
 

@@ -5,9 +5,6 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 local nmap = function(keys, func, desc)
-  if desc then
-    desc = "LazyVim " .. desc
-  end
   vim.keymap.set("n", keys, func, { desc = desc })
 end
 
@@ -78,3 +75,18 @@ nmap("<leader>sr", "<cmd>Telescope lsp_references<cr>", "Search references")
 nmap("<leader>fb", "<cmd>Telescope file_browser<cr>")
 
 nmap("<leader>o", "<cmd>Lspsaga outline<cr>", "Open Outline")
+
+-- harpoon keymap
+local harpoon = require("harpoon")
+nmap("<leader>1", function()
+  harpoon:list():select(1)
+end, "Goto harpoon file 1")
+nmap("<leader>2", function()
+  harpoon:list():select(2)
+end, "Goto harpoon file 2")
+nmap("<leader>3", function()
+  harpoon:list():select(3)
+end, "Goto harpoon file 3")
+nmap("<leader>4", function()
+  harpoon:list():select(4)
+end, "Goto harpoon file 4")
