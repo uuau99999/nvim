@@ -22,20 +22,20 @@ return {
       end,
       desc = "Mark file with harpoon",
     },
-    {
-      "<leader>n",
-      function()
-        require("harpoon"):list():next()
-      end,
-      desc = "Go to next harpoon mark",
-    },
-    {
-      "<leader>p",
-      function()
-        require("harpoon"):list():prev()
-      end,
-      desc = "Go to previous harpoon mark",
-    },
+    -- {
+    --   "<leader>n",
+    --   function()
+    --     require("harpoon"):list():next()
+    --   end,
+    --   desc = "Go to next harpoon mark",
+    -- },
+    -- {
+    --   "<leader>p",
+    --   function()
+    --     require("harpoon"):list():prev()
+    --   end,
+    --   desc = "Go to previous harpoon mark",
+    -- },
     {
       "<leader>a",
       function()
