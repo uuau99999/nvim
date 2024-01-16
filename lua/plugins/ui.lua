@@ -1,6 +1,7 @@
 return {
   {
     "folke/noice.nvim",
+    enabled = false,
     opts = function(_, opts)
       opts.presets.lsp_doc_border = true
       table.insert(opts.routes, {
@@ -18,6 +19,7 @@ return {
   },
   {
     "rcarriga/nvim-notify",
+    enabled = false,
     opts = {
       timeout = 5000,
       background_colour = "#000000",

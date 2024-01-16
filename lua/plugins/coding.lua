@@ -36,7 +36,7 @@ return {
         { name = "nvim_lsp", priority = 1000 },
         { name = "path", priority = 999 },
         { name = "buffer", priority = 998 },
-        { name = "luasnip", priority = 997 },
+        -- { name = "luasnip", priority = 997 },
       })
       opts.sorting = {
         comparators = {
@@ -74,7 +74,7 @@ return {
   },
   {
     "L3MON4D3/LuaSnip",
-    enabled = true,
+    enabled = false,
     -- follow latest release.
     version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
     -- install jsregexp (optional!).
