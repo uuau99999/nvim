@@ -92,7 +92,7 @@ nmap("<leader>4", function()
 end, "Goto harpoon file 4")
 
 --fugitive keymap
-nmap("<leader>gs", function()
+nmap("gs", function()
   vim.cmd.Git()
 end, "Git status")
 nmap("<leader>gc", function()
