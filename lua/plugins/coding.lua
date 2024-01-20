@@ -32,11 +32,18 @@ return {
         }),
       })
 
-      opts.sources = vim.list_extend(opts.sources, {
-        { name = "nvim_lsp", priority = 1000 },
-        { name = "path", priority = 999 },
-        { name = "buffer", priority = 998 },
-        -- { name = "luasnip", priority = 997 },
+      -- opts.sources = vim.list_extend(opts.sources, {
+      --   { name = "nvim_lsp", priority = 1000 },
+      --   { name = "path", priority = 999 },
+      --   { name = "buffer", priority = 998 },
+      --   -- { name = "luasnip", priority = 997 },
+      -- })
+      opts.sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+      }, {
+        { name = "buffer" },
+        { name = "path" },
       })
       opts.sorting = {
         comparators = {
