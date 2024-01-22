@@ -47,6 +47,7 @@ return {
         "NvimTreeSymlink",
         "NvimTreeFolderIcon",
         "NvimTreeExecFile",
+        "TroubleNormal",
       },
     })
   end,
