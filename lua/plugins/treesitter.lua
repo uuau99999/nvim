@@ -17,6 +17,7 @@ return {
         "typescript",
         "vue",
         "yaml",
+        "astro",
       },
     },
     config = function(_, opts)

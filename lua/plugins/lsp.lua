@@ -14,6 +14,7 @@ return {
         "css-lsp",
         "eslint-lsp",
         "vue-language-server",
+        "astro-language-server",
       })
     end,
   },
@@ -109,12 +110,16 @@ return {
           "lua_ls",
           "html",
           "jsonls",
+          "astro",
         },
       })
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local servers = {
         volar = {
           filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+        },
+        astro = {
+          filetypes = { "astro" },
         },
       }
       masonLsp.setup_handlers({
