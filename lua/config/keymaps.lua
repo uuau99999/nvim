@@ -112,3 +112,7 @@ end, "Git push")
 nmap("<leader>gg", function()
   vim.cmd.Neogit()
 end, "Neogit")
+
+nmap("<leader>Lr", function()
+  vim.cmd.LspRestart()
+end, "Restart LSP")
