@@ -18,8 +18,8 @@ keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 keymap.set("n", "x", '"_x')
-keymap.set("n", "s", '"_s')
-keymap.set("n", "S", '"_S')
+-- keymap.set("n"w, "s", '"_s')
+-- keymap.set("n", "S", '"_S')
 
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
@@ -68,14 +68,15 @@ nmap("<leader>ff", require("telescope.builtin").find_files, "Find files")
 nmap("<leader>/", require("telescope.builtin").live_grep, "Find Text")
 nmap("<leader>fg", "<cmd>Telescope git_files<cr>", "Find Git files")
 nmap("<leader>fw", function()
-  require("telescope.builtin").grep_string({ search = vim.fn.expand("<cword>") })
+  require("telescope.builtin").grep_string({ search = vim.fn.expand("<cword>"), word_match = "-w" })
 end, "Find Words")
 
 nmap("<leader>fh", "<cmd>Telescope help_tags<cr>", "Find Help tags")
 nmap("<leader>sr", "<cmd>Telescope lsp_references<cr>", "Search references")
-nmap("<leader>fb", "<cmd>Telescope file_browser<cr>")
+nmap("<leader>fb", "<cmd>Telescope buffers<cr>")
+nmap("<leader>fj", "<cmd>Telescope jumplist<cr>", "Jumplist")
 
-nmap("<leader>o", "<cmd>Lspsaga outline<cr>", "Open Outline")
+-- nmap("<leader>o", "<cmd>Lspsaga outline<cr>", "Open Outline")
 
 -- harpoon keymap
 local harpoon = require("harpoon")
