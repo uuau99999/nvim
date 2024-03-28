@@ -9,6 +9,7 @@ vim.opt.spell = false
 vim.opt.updatetime = 750
 vim.opt.relativenumber = true
 vim.opt.ignorecase = false
+vim.opt.clipboard = "unnamedplus"
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
