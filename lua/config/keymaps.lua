@@ -10,9 +10,10 @@ end
 
 keymap.set("c", "W", "w")
 
-keymap.set("n", "<leader>pv", vim.cmd.Ex, opts)
+nmap("<leader>t", vim.cmd.Ex, "Open netwr")
 
 keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+keymap.set("n", "<C-x>", "<cmd>silent !tmux neww tmux-clear<CR>")
 
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -41,7 +42,7 @@ keymap.set("n", "sv", ":vsplit<Return>", opts)
 keymap.set("n", "<M-UP>", ":m-2<CR>")
 keymap.set("n", "<M-DOWN>", ":m+1<CR>")
 
-keymap.set("n", "<leader>e", "<cmd>Lex<cr>", opts)
+-- keymap.set("n", "<leader>e", "<cmd>Lex<cr>", opts)
 
 -- -- Tab close
 -- local bufferlineCommands = require("bufferline.commands")
@@ -62,11 +63,12 @@ keymap.set("n", "<leader>?", function()
     previewer = false,
   }))
 end, { desc = "[/] Fuzzily search in current buffer" })
-nmap("<leader><leader>", "<Cmd>Telescope oldfiles only_cwd=true<CR>", "Open recent files")
+nmap("<leader><leader>", "<cmd>Telescope find_files hidden=true no_ignore=false<cr>", "Find files")
 -- nmap("<leader><leader>", "<Cmd>Telescope frecency workspace=CWD<CR>")
-nmap("<leader>ff", require("telescope.builtin").find_files, "Find files")
+-- nmap("<leader>fo", "<Cmd>Telescope oldfiles only_cwd=true<CR>", "Find Old files")
 nmap("<leader>/", require("telescope.builtin").live_grep, "Find Text")
 nmap("<leader>fg", "<cmd>Telescope git_files<cr>", "Find Git files")
+nmap("<leader>fr", "<cmd>Telescope oldfiles only_cwd=true<cr>", "Find Git files")
 nmap("<leader>fw", function()
   require("telescope.builtin").grep_string({ search = vim.fn.expand("<cword>"), word_match = "-w" })
 end, "Find Words")
@@ -118,3 +120,9 @@ end, "Neogit")
 nmap("<leader>Lr", function()
   vim.cmd.LspRestart()
 end, "Restart LSP")
+
+--nvim-tree keymap
+local api = require("nvim-tree.api")
+nmap("<leader>e", function()
+  api.tree.toggle({})
+end, "Toggle Nvim tree")
