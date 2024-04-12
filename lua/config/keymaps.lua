@@ -35,8 +35,8 @@ keymap.set("n", "cw", '"_ciw')
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- Split window
-keymap.set("n", "ss", ":split<Return>", opts)
-keymap.set("n", "sv", ":vsplit<Return>", opts)
+keymap.set("n", "<leader>ss", ":split<Return>", opts)
+keymap.set("n", "<leader>sv", ":vsplit<Return>", opts)
 
 -- Line move
 keymap.set("n", "<M-UP>", ":m-2<CR>")
@@ -63,12 +63,13 @@ keymap.set("n", "<leader>?", function()
     previewer = false,
   }))
 end, { desc = "[/] Fuzzily search in current buffer" })
-nmap("<leader><leader>", "<cmd>Telescope find_files hidden=true no_ignore=false<cr>", "Find files")
 -- nmap("<leader><leader>", "<Cmd>Telescope frecency workspace=CWD<CR>")
 -- nmap("<leader>fo", "<Cmd>Telescope oldfiles only_cwd=true<CR>", "Find Old files")
 nmap("<leader>/", require("telescope.builtin").live_grep, "Find Text")
 nmap("<leader>fg", "<cmd>Telescope git_files<cr>", "Find Git files")
-nmap("<leader>fr", "<cmd>Telescope oldfiles only_cwd=true<cr>", "Find Git files")
+nmap("<leader>ff", "<cmd>Telescope find_files hidden=true no_ignore=false<cr>", "Find files")
+nmap("<leader><leader>", "<cmd>Telescope oldfiles only_cwd=true<cr>", "Find Old files")
+nmap("<leader>fr", "<cmd>Telescope oldfiles only_cwd=true<cr>", "Find Old files")
 nmap("<leader>fw", function()
   require("telescope.builtin").grep_string({ search = vim.fn.expand("<cword>"), word_match = "-w" })
 end, "Find Words")
@@ -117,7 +118,7 @@ nmap("<leader>gg", function()
   vim.cmd.Neogit()
 end, "Neogit")
 
-nmap("<leader>Lr", function()
+nmap("<leader>lr", function()
   vim.cmd.LspRestart()
 end, "Restart LSP")
 
