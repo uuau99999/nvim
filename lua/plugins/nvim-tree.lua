@@ -25,7 +25,7 @@ return {
         group_empty = true,
       },
       filters = {
-        dotfiles = true,
+        dotfiles = false,
       },
       respect_buf_cwd = true,
       hijack_directories = {
