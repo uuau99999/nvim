@@ -48,6 +48,8 @@ return {
         "NvimTreeFolderIcon",
         "NvimTreeExecFile",
         "TroubleNormal",
+        "TreesitterContextLineNumber",
+        "TreesitterContextLineNumberBottom",
       },
     })
   end,
