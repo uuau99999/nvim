@@ -31,6 +31,9 @@ keymap.set("n", "vw", "viw")
 keymap.set("n", "c", '"_c')
 keymap.set("n", "cw", '"_ciw')
 
+-- Disable macro
+keymap.set("n", "q", "<nop>")
+
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
