@@ -67,21 +67,43 @@ end
 
 -- local custom_gruvbox = require("lualine.themes.tokyonight")
 
-local bubbles_theme = {
-  normal = {
-    a = { fg = colors.black, bg = colors.lightgreen },
-    b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.white, bg = colors.grey },
-  },
+-- local bubbles_theme = {
+--   normal = {
+--     a = { fg = colors.black, bg = colors.lightgreen },
+--     b = { fg = colors.white, bg = colors.grey },
+--     c = { fg = colors.white, bg = colors.grey },
+--   },
+--
+--   insert = { a = { fg = colors.black, bg = colors.blue } },
+--   visual = { a = { fg = colors.black, bg = colors.cyan } },
+--   replace = { a = { fg = colors.black, bg = colors.red } },
+--
+--   inactive = {
+--     a = { fg = colors.white, bg = colors.black },
+--     b = { fg = colors.white, bg = colors.black },
+--     c = { fg = colors.white },
+--   },
+-- }
 
-  insert = { a = { fg = colors.black, bg = colors.blue } },
-  visual = { a = { fg = colors.black, bg = colors.cyan } },
-  replace = { a = { fg = colors.black, bg = colors.red } },
+local lualine_nightfly = require("lualine.themes.nightfly")
+-- new colors for theme
+local new_colors = {
+  blue = "#65D1FF",
+  green = "#3EFFDC",
+  violet = "#FF61EF",
+  yellow = "#FFDA7B",
+  black = "#000000",
+}
 
-  inactive = {
-    a = { fg = colors.white, bg = colors.black },
-    b = { fg = colors.white, bg = colors.black },
-    c = { fg = colors.white },
+-- change nightlfy theme colors
+lualine_nightfly.normal.a.bg = new_colors.blue
+lualine_nightfly.insert.a.bg = new_colors.green
+lualine_nightfly.visual.a.bg = new_colors.violet
+lualine_nightfly.command = {
+  a = {
+    gui = "bold",
+    bg = new_colors.yellow,
+    fg = new_colors.black, -- black
   },
 }
 
@@ -90,19 +112,21 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = bubbles_theme,
-        component_separators = "",
-        section_separators = { left = "", right = "" },
+        theme = lualine_nightfly,
+        -- component_separators = "",
+        -- section_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
-        lualine_b = { { findCodebaseDir, color = { fg = colors.black, bg = colors.orange }, icon = "" } },
+        lualine_a = { { "mode", separator = { left = "" } } },
+        lualine_b = {
+          { "branch" },
+          { findCodebaseDir, color = { fg = colors.black, bg = colors.orange }, icon = "" },
+        },
         lualine_c = {
-          { "branch", color = { fg = colors.black, bg = colors.green } },
           { getFileRelativePath, color = customFilenameColor },
         },
         lualine_x = {
-          "diagnostics",
+          { "diagnostics", separator = { right = "" } },
           "diff",
         },
         lualine_y = { "filetype" },

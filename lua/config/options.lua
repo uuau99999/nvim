@@ -23,3 +23,20 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+
+-- color scheme
+vim.o.termguicolors = true
+vim.g.nightflyTransparent = true
+vim.g.nightflyUndercurls = false
+vim.g.nightflyNormalFloat = true
+vim.g.nightflyWinSeparator = 2
+-- Lua initialization file
+vim.opt.fillchars = {
+  horiz = "━",
+  horizup = "┻",
+  horizdown = "┳",
+  vert = "┃",
+  vertleft = "┫",
+  vertright = "┣",
+  verthoriz = "╋",
+}

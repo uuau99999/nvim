@@ -1,5 +1,11 @@
 return {
   {
+    "bluz71/vim-nightfly-guicolors",
+    name = "nightfly",
+    lazy = false,
+    priority = 1000,
+  },
+  {
     "craftzdog/solarized-osaka.nvim",
     branch = "osaka",
     lazy = true,

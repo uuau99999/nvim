@@ -22,6 +22,9 @@ return {
     },
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
+      require("treesitter-context").setup({
+        separator = "-",
+      })
 
       -- MDX
       vim.filetype.add({
