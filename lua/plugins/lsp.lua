@@ -27,7 +27,6 @@ return {
       diagnostics = {
         underline = true,
         virtual_text = true,
-        signs = true,
         update_in_insert = false,
       },
       inlay_hints = { enabled = true },
