@@ -18,8 +18,8 @@ keymap.set("n", "<C-x>", "<cmd>silent !tmux neww tmux-clear<CR>")
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-keymap.set("n", "<C-j>", "<C-e>")
-keymap.set("n", "<C-k>", "<C-y>")
+-- keymap.set("n", "<C-j>", "<C-e>")
+-- keymap.set("n", "<C-k>", "<C-y>")
 
 keymap.set("n", "x", '"_x')
 -- keymap.set("n"w, "s", '"_s')
