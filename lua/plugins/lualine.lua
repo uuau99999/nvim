@@ -112,7 +112,8 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = lualine_nightfly,
+        -- theme = lualine_nightfly,
+        theme = "ayu_mirage",
         -- component_separators = "",
         -- section_separators = { left = "", right = "" },
       },

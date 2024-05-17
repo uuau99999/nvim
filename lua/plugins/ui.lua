@@ -1,9 +1,16 @@
 return {
   {
     "folke/noice.nvim",
-    enabled = false,
+    enabled = true,
     opts = function(_, opts)
       opts.presets.lsp_doc_border = true
+      opts.views = {
+        mini = {
+          win_options = {
+            winblend = 0,
+          },
+        },
+      }
       table.insert(opts.routes, {
         filter = {
           event = "notify",
@@ -13,7 +20,7 @@ return {
       })
       opts.cmdline = {
         enabled = true,
-        view = "cmdline_popup",
+        view = "cmdline",
       }
     end,
   },
