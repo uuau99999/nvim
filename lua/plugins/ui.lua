@@ -43,7 +43,21 @@ return {
       { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
       { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
     },
-    opts = {},
+    opts = {
+      options = {
+        indicator = { style = "none" },
+        show_buffer_close_icons = false,
+        show_close_icon = false,
+        offsets = {
+          {
+            filetype = "NvimTree",
+            text = "File Explorer",
+            highlight = "Directory",
+            separator = true, -- use a "true" to enable the default, or set your own character
+          },
+        },
+      },
+    },
   },
   {
     "nvim-lualine/lualine.nvim",
