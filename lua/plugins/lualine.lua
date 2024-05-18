@@ -118,10 +118,15 @@ return {
         -- section_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_a = { { "mode", separator = { left = "" } } },
+        lualine_a = { { "mode", separator = { left = "", right = "" } } },
         lualine_b = {
           { "branch" },
-          { findCodebaseDir, color = { fg = colors.black, bg = colors.orange }, icon = "" },
+          {
+            findCodebaseDir,
+            color = { fg = colors.black, bg = colors.orange },
+            icon = "",
+            separator = { left = "", right = "" },
+          },
         },
         lualine_c = {
           { getFileRelativePath, color = customFilenameColor },
@@ -132,7 +137,7 @@ return {
         },
         lualine_y = { "filetype" },
         lualine_z = {
-          { "progress", separator = { right = "" } },
+          { "progress", separator = { left = "" } },
           { "%l/%L" },
         },
       },
