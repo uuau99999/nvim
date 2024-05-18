@@ -118,14 +118,14 @@ return {
         -- section_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_a = { { "mode", separator = { left = "", right = "" } } },
+        lualine_a = { { "mode", separator = { left = "", right = "" } } },
         lualine_b = {
           { "branch" },
           {
             findCodebaseDir,
             color = { fg = colors.black, bg = colors.orange },
             icon = "",
-            separator = { left = "", right = "" },
+            separator = { left = "", right = "" },
           },
         },
         lualine_c = {
@@ -137,7 +137,7 @@ return {
         },
         lualine_y = { "filetype" },
         lualine_z = {
-          { "progress", separator = { left = "" } },
+          { "progress", separator = { left = "" } },
           { "%l/%L" },
         },
       },
