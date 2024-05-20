@@ -92,6 +92,9 @@ return {
         },
         -- linehl = true,
       })
+      vim.keymap.set("n", "<leader>gl", ":Gitsigns preview_hunk<CR>", {
+        desc = "Check current chunk diff",
+      })
     end,
   },
   {
