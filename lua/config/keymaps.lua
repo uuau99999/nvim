@@ -8,7 +8,7 @@ local nmap = function(keys, func, desc)
   vim.keymap.set("n", keys, func, { desc = desc })
 end
 
-keymap.set("c", "W", "w")
+-- keymap.set("c", "W", "w")
 
 nmap("<leader>t", vim.cmd.Ex, "Open netwr")
 
@@ -31,7 +31,8 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "dw", "diw")
 keymap.set("n", "yw", "yiw")
 keymap.set("n", "vw", "viw")
-keymap.set("n", "c", '"_c')
+keymap.set("n", "cc", '"_cc')
+keymap.set("n", "c", '"_ci')
 keymap.set("n", "cw", '"_ciw')
 
 -- Disable macro
@@ -139,3 +140,6 @@ local api = require("nvim-tree.api")
 nmap("<leader>e", function()
   api.tree.toggle({})
 end, "Toggle Nvim tree")
+
+--mini-files keymap
+nmap("<Tab>", require("mini.files").open, "Open mini-files")
