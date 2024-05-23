@@ -12,8 +12,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "*" },
   callback = function()
-    -- vim.opt.formatoptions:remove("c")
-    -- vim.opt.formatoptions:remove("r")
-    -- vim.opt.formatoptions:remove("o")
+    vim.opt.formatoptions:remove("c")
+    vim.opt.formatoptions:remove("r")
+    vim.opt.formatoptions:remove("o")
   end,
 })

@@ -8,7 +8,7 @@ local nmap = function(keys, func, desc)
   vim.keymap.set("n", keys, func, { desc = desc })
 end
 
--- keymap.set("c", "W", "w")
+keymap.set("c", "W", "w")
 
 nmap("<leader>t", vim.cmd.Ex, "Open netwr")
 
@@ -34,6 +34,8 @@ keymap.set("n", "vw", "viw")
 keymap.set("n", "cc", '"_cc')
 keymap.set("n", "c", '"_ci')
 keymap.set("n", "cw", '"_ciw')
+keymap.set("n", "yy", "yy")
+keymap.set("n", "y", "yi")
 
 -- Disable macro
 keymap.set("n", "q", "<nop>")
