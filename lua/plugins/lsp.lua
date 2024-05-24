@@ -101,6 +101,11 @@ return {
               desc = "Remove Unused Imports",
             },
           },
+          init_options = {
+            vue = {
+              hybridMode = false,
+            },
+          },
         },
       },
     },
