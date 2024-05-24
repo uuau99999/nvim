@@ -4,6 +4,16 @@ return {
   --   version = "*",
   -- },
   {
+    "echasnovski/mini.surround",
+    enabled = false,
+  },
+  {
+    "echasnovski/mini.jump",
+    opts = function()
+      require("mini.jump").setup()
+    end,
+  },
+  {
     "echasnovski/mini.files",
     opts = {
       -- Customization of shown content

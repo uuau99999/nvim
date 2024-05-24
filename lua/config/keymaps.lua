@@ -111,10 +111,6 @@ nmap("<leader>4", function()
   harpoon:list():select(4)
 end, "Goto harpoon file 4")
 
---fugitive keymap
-nmap("gs", function()
-  vim.cmd.Git()
-end, "Git status")
 nmap("<leader>gc", function()
   vim.cmd.Git({ "commit" })
 end, "Git commit")
@@ -145,3 +141,7 @@ end, "Toggle Nvim tree")
 
 --mini-files keymap
 nmap("<Tab>", require("mini.files").open, "Open mini-files")
+
+--leap
+vim.keymap.set("n", "s", "<Plug>(leap)", { desc = "Leap from window" })
+keymap.set("n", "S", '"_S')
