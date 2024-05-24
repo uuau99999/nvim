@@ -8,6 +8,9 @@ local nmap = function(keys, func, desc)
   vim.keymap.set("n", keys, func, { desc = desc })
 end
 
+local discipline = require("local.discipline")
+discipline.cowboy()
+
 keymap.set("c", "W", "w")
 
 nmap("<leader>t", vim.cmd.Ex, "Open netwr")
