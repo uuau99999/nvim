@@ -11,7 +11,7 @@ end
 -- local discipline = require("local.discipline")
 -- discipline.cowboy()
 
-keymap.set("c", "W", "w")
+keymap.set("c", "W<CR>", "w<CR>")
 
 nmap("<leader>t", vim.cmd.Ex, "Open netwr")
 
