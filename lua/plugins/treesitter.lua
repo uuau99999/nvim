@@ -18,6 +18,7 @@ return {
         "vue",
         "yaml",
         "astro",
+        "svelte",
       },
     },
     config = function(_, opts)
